@@ -1,0 +1,42 @@
+﻿@model ClinicalAutomationSystem.Models.DataModel
+@{
+    ViewBag.Title = "EditProfile";
+}
+
+<div class="col-md-4">
+    @{ Html.RenderPartial("_supplierMenu");}
+</div>
+<div class="col-md-8">
+
+    <h2>Edit Profile</h2>
+    @using (Html.BeginForm("EditProfile", "Supplier"))
+    {
+        <div>
+
+            <form>
+                Enter First Name: @Html.TextBoxFor(m => m.FirstName)
+                <br />
+                <br />
+                Enter Last Name: @Html.TextBoxFor(m => m.LastName)
+                <br />
+                <br />
+                Enter Company Name: @Html.TextBoxFor(m => m.CompanyName)
+                <br />
+                <br />
+                Enter Company Address: @Html.TextAreaFor(m => m.CompanyAddress)
+                <br />
+                <br />
+                @if (Model.FirstName == null)
+                {<input type="submit" value="Insert" />}
+                else
+                {<input type="submit" value="Edit" />}
+                <br />
+                <br />
+                @ViewBag.text
+            </form>
+        </div>
+
+    }
+
+</div>
+

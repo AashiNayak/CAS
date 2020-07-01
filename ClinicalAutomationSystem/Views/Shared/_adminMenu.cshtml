@@ -1,0 +1,22 @@
+﻿<div class="navbar navbar-inverse navbar-left navbar-form ">
+    <div class="container-fluid">
+
+        @if (Request.IsAuthenticated && Session["name"] == null)
+        {
+            @Html.ActionLink("Home", "Home", "Admin", new { area = "" }, new { @class = "navbar-brand" })<br /><br />
+            @Html.ActionLink("Fill Details", "EditProfile", "Admin", new { area = "" }, new { @class = "navbar-brand" })<br /><br />
+        }
+        else if (Session["name"] != null)
+        {
+            @Html.ActionLink("Home", "Home", "Admin", new { area = "" }, new { @class = "navbar-brand" })<br /><br />
+            @Html.ActionLink("Edit Profile", "EditProfile", "Admin", new { area = "" }, new { @class = "navbar-brand" })<br /><br />
+            @Html.ActionLink("Change Password", "ChangePwd", "Admin", new { area = "" }, new { @class = "navbar-brand" })<br /><br />
+            @Html.ActionLink("Add Drug Details", "AddDrugDetails", "Admin", new { area = "" }, new { @class = "navbar-brand" })<br /><br />
+            @Html.ActionLink("View/Edit Drugs", "ViewEditDrugs", "Admin", new { area = "" }, new { @class = "navbar-brand" })<br /><br />
+            @Html.ActionLink("View Patient Orders", "ViewPatientOrders", "Admin", new { area = "" }, new { @class = "navbar-brand" })<br /><br />
+
+        }
+
+    </div>
+</div>
+

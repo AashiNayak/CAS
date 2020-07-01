@@ -1,0 +1,34 @@
+﻿@model ClinicalAutomationSystem.Models.PwdModel
+@{
+    ViewBag.Title = "Change Password";
+}
+<div class="col-md-4">
+    @{ Html.RenderPartial("_doctorMenu");}
+</div>
+<div class="col-md-8">
+@using (Html.BeginForm("ChangePwd", "Doctor"))
+{<h2>Change Password</h2>
+    <br />
+    <br />
+    <form>
+        <div>
+            Enter Current Password : @Html.PasswordFor(m => m.OldPassword)
+            @Html.ValidationMessageFor(m => m.OldPassword)
+            <br />
+            <br />
+            Enter New Password : @Html.PasswordFor(m => m.NewPassword)
+            @Html.ValidationMessageFor(m => m.NewPassword)
+            <br />
+            <br />
+            Confirm New Password : @Html.PasswordFor(m => m.CNPassword)
+            @Html.ValidationMessageFor(m => m.CNPassword)
+            <br />
+            <br />
+            <input type="submit" value="Change Password" />
+            <br />
+            <br />
+            @ViewBag.text
+        </div>
+    </form>
+}
+</div>

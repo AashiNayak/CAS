@@ -1,0 +1,25 @@
+﻿@model ClinicalAutomationSystem.Models.DataModel
+@{
+    ViewBag.Title = "Message";
+}
+<div class="col-md-4">
+    @{ Html.RenderPartial("_patientMenu");}
+</div>
+<div class="col-md-8">
+    @using(Html.BeginForm("Message","Patient"))
+    { <h2>Message</h2>
+        <div>
+            Subject : @Html.TextBoxFor(m=>m.Subject)
+            <br />
+            <br />
+            Description : @Html.TextAreaFor(m=>m.MessageDetails)
+            <br />
+            <br />
+            @Html.HiddenFor(m=>m.DoctorId)
+            <input type="submit" value="Send" />
+            <br />
+            <br />
+            @ViewBag.text
+        </div>
+    }
+</div>

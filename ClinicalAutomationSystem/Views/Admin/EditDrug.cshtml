@@ -1,0 +1,57 @@
+﻿@model ClinicalAutomationSystem.Models.DrugModel
+@{
+    ViewBag.Title = "EditDrugDetails";
+}
+
+
+<div class="col-md-4">
+    @{ Html.RenderPartial("_adminMenu");}
+</div>
+<div class="col-md-8">
+    <h2>Edit Drug Details</h2>
+    @using (Html.BeginForm("EditDrug", "Admin"))
+    {
+        <div>
+
+            <form>
+                Drug Name: @Html.TextBoxFor(m => m.DrugName)
+                @Html.ValidationMessageFor(m => m.DrugName)
+                <br />
+                <br />
+                Used For: @Html.TextAreaFor(m => m.UsedFor)
+                @Html.ValidationMessageFor(m => m.UsedFor)
+                <br />
+                <br />
+                Side Effects: @Html.TextAreaFor(m => m.SideEffects)
+                @Html.ValidationMessageFor(m => m.SideEffects)
+                <br />
+                <br />
+                Manufacturing Date: @Html.TextBoxFor(m => m.ManufactureDate)
+                @Html.ValidationMessageFor(m => m.ManufactureDate)
+                <br />
+                <br />
+                Expiry Date: @Html.TextBoxFor(m => m.ExpiryDate)
+                @Html.ValidationMessageFor(m => m.ExpiryDate)
+                <br />
+                <br />
+                Quantity: @Html.TextBoxFor(m => m.TotalQuantity)
+                @Html.ValidationMessageFor(m => m.TotalQuantity)
+                <br />
+                <br />
+                Available: @Html.RadioButtonFor(m => m.IsDeleted, "false")
+                <br />
+                <br />
+                @Html.HiddenFor(m => m.DrugId)
+                <input type="submit" value="Edit" />
+                <br />
+                <br />
+                @ViewBag.text
+            </form>
+        </div>
+
+    }
+</div>
+
+
+
+

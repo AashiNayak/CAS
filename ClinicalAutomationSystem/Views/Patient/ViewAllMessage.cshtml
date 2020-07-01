@@ -1,0 +1,45 @@
+﻿@model ClinicalAutomationSystem.Models.DataModel
+
+@{
+    ViewBag.Title = "ViewAllMessage";
+}
+<div class="col-md-4">
+    @{ Html.RenderPartial("_patientMenu");}
+</div>
+<div class="col-md-8">
+    @using (Html.BeginForm("ViewAllMessage","Patient"))
+    { 
+    <h2>ViewAllMessage</h2>
+    <div>
+        @Html.HiddenFor(m => m.FromEmail)
+        @Html.HiddenFor(m => m.ToEmail)
+        @if (Model.MsgViewList.Count() != 0)
+        {
+            <table border="1" cellpadding="4">
+                <tr>
+                    <th>Message From</th>
+                    <th>Message</th>
+                    <th>Date</th>
+                </tr>
+
+                @foreach (var item in Model.MsgViewList)
+                {
+                    <tr>
+                        <td>@item.From</td>
+                        <td>@item.MessageDetails</td>
+                        <td>@item.MsgDate</td>
+                    </tr>
+                }
+            </table>
+            @Html.TextAreaFor(m => m.MessageDetails)
+            <input type="submit" value="Send" />
+        }
+        else
+        {
+            @ViewBag.text
+        }
+
+
+    </div>
+    }
+</div>

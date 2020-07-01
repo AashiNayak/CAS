@@ -1,0 +1,41 @@
+﻿@model ClinicalAutomationSystem.Models.DataModel
+
+@{
+    ViewBag.Title = "ViewMessage";
+}
+<div class="col-md-4">
+    @{ Html.RenderPartial("_doctorMenu");}
+</div>
+<div class="col-md-8">
+    <h2>ViewMessage</h2>
+    <div>
+        @if (Model.MsgList.Count() != 0)
+        {
+            <table border="1" cellpadding="4">
+                <tr>
+                    <th>Name</th>
+                    <th>Subject</th>
+                    <th>Details</th>
+                    <th>Date</th>
+                    <th>Action Button</th>
+                </tr>
+                @foreach (var item in Model.MsgList)
+                {
+                    <tr>
+                        <td>@item.FirstName</td>
+                        <td>@item.Subject</td>
+                        <td>@item.MessageDetails</td>
+                        <td>@item.MsgDate</td>
+                        <td><button><a href="@Url.Action("ViewAllMessage","Doctor",new {docmail = item.ToEmail, pmail = item.FromEmail, subject= item.Subject })">View All Messages</a></button></td>
+                    </tr>
+                }
+            </table>
+
+        }
+        else
+        {
+            @ViewBag.text
+        }
+
+    </div>
+</div>

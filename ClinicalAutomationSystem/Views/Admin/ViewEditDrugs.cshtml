@@ -1,0 +1,47 @@
+﻿@model ClinicalAutomationSystem.Models.DrugModel
+@{
+    ViewBag.Title = "ViewEditDrugs";
+}
+
+<div class="col-md-4">
+    @{ Html.RenderPartial("_adminMenu");}
+</div>
+<div class="col-md-8">
+    <h2>View Edit Drugs</h2>
+        <br />
+        @if (Model.DrugList.Count() != 0)
+        {
+            <table width="100%" border="1">
+                <tr>
+                    <th>Drug Name</th>
+                    <th>Used For</th>
+                    <th>Side Effects</th>
+                    <th>Manufac. Date</th>
+                    <th>Expiry Date</th>
+                    <th>Quantity</th>
+                    <th>IsDeleted</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+                @foreach (var item in Model.DrugList)
+                {
+            <tr>
+                <td>@item.DrugName</td>
+                <td>@item.UsedFor</td>
+                <td>@item.SideEffects</td>
+                <td>@item.ManufactureDate</td>
+                <td>@item.ExpiryDate</td>
+                <td>@item.TotalQuantity</td>
+                <td>@item.IsDeleted</td>
+                <td><button><a href="@Url.Action("EditDrug", "Admin", new { id = item.DrugId })">Edit</a></button></td>
+                <td><button><a href="@Url.Action("DeleteDrug", "Admin", new { id = item.DrugId })">Delete</a></button></td>
+            </tr>
+                }
+            </table>
+
+        }
+        else
+        {
+            @ViewBag.text
+        }
+</div>

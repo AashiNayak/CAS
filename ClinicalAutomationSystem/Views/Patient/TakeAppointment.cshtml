@@ -1,0 +1,32 @@
+﻿@model ClinicalAutomationSystem.Models.DataModel
+@{
+    ViewBag.Title = "TakeAppointment";
+}
+
+<div class="col-md-4">
+    @{ Html.RenderPartial("_patientMenu");}
+</div>
+<div class="col-md-8">
+    @using (Html.BeginForm("TakeAppointment", "Patient"))
+    {<h2>Take Appointment</h2>
+        <div>
+            Select Doctor : @Html.DropDownListFor(m => m.DoctorId, Model.ListD)
+            <br />
+            <br />
+            Subject : @Html.TextBoxFor(m => m.Subject)
+            <br />
+            <br />
+            Description : @Html.TextBoxFor(m => m.Description)
+            <br />
+            <br />
+            Select Appointment Date : <input  type="datetime-local" name="datet" value="Select Date"  required />
+            <br />
+            <br />
+            <input type="submit" value="Take Appointment" />
+            <br />
+            <br />
+            @ViewBag.text
+        </div>
+
+    }
+</div>

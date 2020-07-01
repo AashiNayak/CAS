@@ -1,0 +1,36 @@
+﻿@model ClinicalAutomationSystem.Models.DrugModel
+
+@{
+    ViewBag.Title = "ViewOrders";
+}
+<div class="col-md-4">
+    @{ Html.RenderPartial("_patientMenu");}
+</div>
+<div class="col-md-8">
+
+    <h2>ViewOrders</h2>
+    @if(Model.DrugList.Count()!=0)
+    {
+        <table width="100%" border="1">
+            <tr>
+                <th>Drug Name</th>
+                <th>Order Date </th>
+                <th>Order Status</th>
+                <th>Quantity</th>
+            </tr>
+            @foreach (var item in Model.DrugList)
+            {
+                <tr>
+                    <td>@item.DrugName</td>
+                    <td>@item.OrderDate</td>
+                    <td>@item.OrderStatus</td>
+                    <td>@item.OrderQuantity</td>
+                </tr>
+            }
+        </table>
+    }
+    else
+    {
+        @ViewBag.text;
+    }
+</div>

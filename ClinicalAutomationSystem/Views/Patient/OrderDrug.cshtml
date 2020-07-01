@@ -1,0 +1,53 @@
+﻿@model ClinicalAutomationSystem.Models.DrugModel
+
+@{
+    ViewBag.Title = "OrderDrug";
+}
+
+<div class="col-md-4">
+    @{ Html.RenderPartial("_patientMenu");}
+</div>
+<div class="col-md-8">
+    <h2>OrderDrug</h2>
+    @using (Html.BeginForm("OrderDrug", "Patient"))
+    {<h2>Take Appointment</h2>
+        <div>
+            Select Drug : @Html.DropDownListFor(m => m.DrugId, Model.DrugNameList,"Select",new {@id = "drugId" })
+            <br />
+            <br />
+            Total Quantity Available : <input type="text" id="txtQty" />
+            <br />
+            <br />
+            Quantity : @Html.TextBoxFor(m => m.OrderQuantity)
+            <br />
+            <br />
+            <input type="submit" value="Place Order" />
+            <br />
+            <br />
+            @ViewBag.text
+        </div>
+    }
+</div>
+@section Script{
+    <script>
+        $(document).ready(function () {
+            $("#drugId").change(function () {
+                $("#txtQty").empty()
+                $.ajax({
+                    url: '@Url.Action("GetQuantity","Patient")',
+                    type: 'get',
+                    data: { id: $("#drugId").val() },
+                    dataType: 'json',
+                    success: function (data) {
+
+                        $("#txtQty").val(data);
+                    },
+                    error: function () {
+                        alert("Error displaying Quantity");
+                    }
+                    
+                });
+            });
+        });
+    </script>
+    }  

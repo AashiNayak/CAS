@@ -1,0 +1,25 @@
+﻿@model ClinicalAutomationSystem.Models.DataModel
+@{
+    ViewBag.Title = "Login";
+}
+
+<h2>Login</h2>
+@{Html.RenderPartial("_homeMenu");}
+
+@using (Html.BeginForm("Login", "Home"))
+{<form>
+        <div>
+            Email ID : @Html.TextBoxFor(m => m.Email)
+            <br />
+            <br />
+            Password : @Html.PasswordFor(m => m.Password)
+            <br />
+            <br />
+            <input type="submit" value="Login" />
+            <br />
+            <br />
+            @ViewBag.text
+        </div>
+
+    </form>
+}

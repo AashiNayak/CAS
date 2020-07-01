@@ -1,0 +1,48 @@
+﻿@model ClinicalAutomationSystem.Models.DataModel
+@{
+    ViewBag.Title = "SendMessage";
+}
+<div class="col-md-4">
+    @{ Html.RenderPartial("_patientMenu");}
+</div>
+<div class="col-md-8">
+        <h2>Send Message</h2>
+        <div>
+            @if (Model.MsgList.Count != 0)
+            {
+                <table>
+                    <tr>
+                        <th>
+                            Doctor's Name
+                        </th>
+                        <th>
+                            Appintment Date
+                        </th>
+                        <th>
+                            Send Message
+                        </th>
+                    </tr>
+
+                    @foreach (var item in Model.MsgList)
+
+                    {
+                        <tr>
+                            <td>
+                                @item.FirstName
+                            </td>
+                            <td>@item.AppointmentDate</td>
+                            <td>
+                                <a href="@Url.Action("Message","Patient",new{ fromid = item.PatientId, toid = item.DoctorId})">Send Message</a>
+                            </td>
+                        </tr>
+                    }
+
+                </table>
+
+            }
+            else
+            {
+                @ViewBag.text
+            }
+        </div>
+</div>

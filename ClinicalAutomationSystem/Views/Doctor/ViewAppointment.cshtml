@@ -1,0 +1,53 @@
+﻿@model ClinicalAutomationSystem.Models.DataModel
+
+@{
+    ViewBag.Title = "View Appointment";
+}
+<div class="col-md-4">
+    @{ Html.RenderPartial("_doctorMenu");}
+</div>
+<div class="col-md-8">
+
+    <h2>ViewAppointment</h2>
+   
+<table cellpadding="4" border="1" align="center" width="100%">
+    <tr>
+        <th>Patients Name</th>
+        <th>Gender</th>
+        <th>Subject</th>
+        <th>Description</th>
+        <th>Appointment Date</th>
+        <th>Status</th>
+
+    </tr>
+    @foreach (var item in Model.AppointmentList)
+    {
+<tr>
+    <td>@item.FirstName</td>
+    <td>@item.Gender</td>
+    <td>@item.Subject</td>
+    <td>@item.Description</td>
+    <td>@item.AppointmentDate</td>
+    <td>
+        <div>
+            @if (@item.AppointmentStatus == "Requested")
+            {
+
+                <button onclick="location.href='@Url.Action("UpdateAppointments", "Doctor", new { id = item.AppointmentId, str = "Accepted" })';return false;">Accept</button>
+                <button onclick="location.href='@Url.Action("UpdateAppointments", "Doctor", new { id = item.AppointmentId, str = "Rejected" })';return false;">Reject</button>
+
+            }
+            else
+            {
+            @item.AppointmentStatus
+}
+
+        </div>
+    </td>
+   
+</tr>
+    }
+
+</table>
+    
+</div>

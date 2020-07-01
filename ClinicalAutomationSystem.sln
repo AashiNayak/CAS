@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30011.22
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClinicalAutomationSystem", "ClinicalAutomationSystem\ClinicalAutomationSystem.csproj", "{F816A36D-0F42-4C6C-8B0A-25198FA1CEDB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F816A36D-0F42-4C6C-8B0A-25198FA1CEDB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F816A36D-0F42-4C6C-8B0A-25198FA1CEDB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F816A36D-0F42-4C6C-8B0A-25198FA1CEDB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F816A36D-0F42-4C6C-8B0A-25198FA1CEDB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BBC30027-5BBD-415E-A0AE-C455894A2404}
+	EndGlobalSection
+EndGlobal
